@@ -1,0 +1,138 @@
+{% extends "base.html" %} {% block title %}UCPP - Prediction{% endblock %} {%
+block content %}
+<div class="d-flex justify-content-center pb-4">
+    <h1>Enter Car Details</h1>
+</div>
+
+<form method="POST" action="/predict">
+  <div class="container">
+    <div class="row">
+      <div class="form-group col-6">
+        <label for="name">Car Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Enter Car Name"
+        />
+      </div>
+      <div class="form-group col-6">
+        <label for="name">Manufactured Year</label>
+        <input
+          type="number"
+          class="form-control"
+          id="year"
+          name="year"
+          placeholder="Enter Year"
+        />
+      </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="row">
+      <div class="form-group col-6">
+        <label for="name">Distance Driven</label>
+        <input
+          type="number"
+          class="form-control"
+          id="km_driven"
+          name="km_driven"
+          placeholder="Enter kms driven"
+        />
+        </div>
+        <div class="form-group col-6">
+          <label for="fuel">Fuel Type</label>
+          <select class="form-control" id="fuel" name="fuel">
+            <option value="Diesel">Diesel</option>
+            <option value="Petrol">Petrol</option>
+            <option value="LPG">LPG</option>
+            <option value="CNG">CNG</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="seller_type">Seller Type</label>
+          <select class="form-control" id="seller_type" name="seller_type">
+            <option value="Corporate">Corporate</option>
+            <option value="Individual">Individual</option>
+            <option value="Commercial Registration">
+              Commercial Registration
+            </option>
+            <option value="Dealer">Dealer</option>
+            <option value="Trustmark Dealer">Trustmark Dealer</option>
+          </select>
+        </div>
+        <div class="form-group col-6">
+          <label for="transmission">Transmission</label>
+          <select class="form-control" id="transmission" name="transmission">
+            <option value="0">Automatic</option>
+            <option value="1">Manual</option>
+          </select>
+        </div>
+      </div>
+      </div>
+      <div class="container">
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="owner">Owner Number</label>
+          <select class="form-control" id="owner" name="owner">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="form-group col-6">
+          <label for="engine">Engine CC</label>
+          <input
+            type="number"
+            class="form-control"
+            id="engine"
+            name="engine"
+            placeholder="Enter Engine Capacity in CC"
+          />
+        </div>
+      </div>
+      </div>
+      <div class="container">
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="power">Power in bhp</label>
+          <input
+            type="number"
+            class="form-control"
+            id="power"
+            name="power"
+            placeholder="Enter Power in bhp"
+          />
+        </div>
+        <div class="form-group col-6">
+          <label for="seats">Seats in Car</label>
+          <input
+            type="number"
+            class="form-control"
+            id="seats"
+            name="seats"
+            placeholder="Enter Number of seats in Car"
+          />
+        </div>
+      </div>
+    </div>
+</div>
+
+
+  <div class="d-flex justify-content-center ">
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </div>
+</form>
+<div class="d-flex justify-content-center pb-4">
+    <span class="col-6"><h3>The Car Price:{{prediction_text}}</h3> </span>
+</div>
+
+{% endblock %}
