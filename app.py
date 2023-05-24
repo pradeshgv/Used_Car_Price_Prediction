@@ -12,6 +12,7 @@ def index():
 @app.route("/predict", methods=["POST", "GET"])
 def predict():
     if request.method == "POST":
+        name = request.form["name"]
         year = int(request.form["year"])
         km_driven = int(request.form["km_driven"])
         fuel = request.form["fuel"]
@@ -53,6 +54,7 @@ def predict():
             output = round(prediction[0], 2)
         return render_template(
             "prediction.html",
+            name=name,
             prediction_text=output,
         )
     else:
